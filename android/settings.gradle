@@ -1,0 +1,6 @@
+rootProject.name = 'reactNativeSdk'
+
+include ':app'
+
+include ':focus-android-sdk'
+project(':focus-android-sdk').projectDir = new File(rootProject.projectDir, 'libs/focus-android-sdk')
