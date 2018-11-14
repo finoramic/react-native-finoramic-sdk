@@ -1,0 +1,1 @@
+export { FinoramicSignInSingleton as FinoramicSignIn } from 'src/FinoramicSdk';
