@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import { FinoramicSignIn } from 'reactNativeSdk';
+import { FinoramicSignIn } from 'finoramic-signin';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
 
 export default class App extends Component {
   constructor() {
+    super();
     FinoramicSignIn.configure({
       webClientId: '695617984308-fl04vs5sb8cd3298prk5vimr7jupjivl.apps.googleusercontent.com',
       offlineAccess: true,

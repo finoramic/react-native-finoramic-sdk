@@ -3,7 +3,7 @@ package com.rnexample;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.reactnativesdk.FinoramicSdkPackage;
+import com.reactlibrary.RNFinoramicSigninPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -23,7 +23,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new FinoramicSdkPackage()
+            new RNFinoramicSigninPackage()
       );
     }
 

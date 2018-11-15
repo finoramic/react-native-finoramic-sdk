@@ -1,5 +1,5 @@
 rootProject.name = 'rnexample'
-include ':react-native-finoramic-signin'
-project(':react-native-finoramic-signin').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-finoramic-signin/android/app')
+include ':finoramic-signin'
+project(':finoramic-signin').projectDir = new File(rootProject.projectDir, '../node_modules/finoramic-signin/android')
 
 include ':app'
