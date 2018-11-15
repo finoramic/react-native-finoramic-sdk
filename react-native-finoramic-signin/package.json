@@ -1,5 +1,5 @@
 {
-  "name": "reactNativeSdk",
+  "name": "react-native-finoramic-signin",
   "version": "0.0.1",
   "description": "React Native Wrapper for Finoramic SDK / API",
   "main": "index.js",
@@ -8,14 +8,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.6.0-alpha.8af6728",
-    "react-native": "0.57.4"
+    "react": "16.0.0-beta.5",
+    "react-native": "0.49.2"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.49.0",
-    "react-test-renderer": "16.6.0-alpha.8af6728"
+    "metro-react-native-babel-preset": "0.49.0"
   },
   "jest": {
     "preset": "react-native"
