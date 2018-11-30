@@ -22,7 +22,7 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 
 	private PromiseWrapper promiseWrapper;
 
-	public void FinoramicSdkModule(final ReactApplicationContext reactContext) {
+	public RNFinoramicSigninModule(final ReactApplicationContext reactContext) {
 		super(reactContext);
 		this.reactContext = reactContext;
 		reactContext.addActivityEventListener(this);

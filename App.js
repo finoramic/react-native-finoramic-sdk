@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import { FinoramicSignIn } from 'finoramic-signin';
+import { FinoramicSignIn } from 'react-native-finoramic-signin';
 
 const styles = StyleSheet.create({
   container: {
