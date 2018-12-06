@@ -9,7 +9,7 @@ public class PromiseWrapper {
 	private Promise promise;
 	private String nameOfCallInProgress;
 
-	public boolean setPromiseWithInProgressCheck(Promise promise, String fromCallsite) {
+	boolean setPromiseWithInProgressCheck(Promise promise, String fromCallsite) {
 		boolean success = false;
 		if (this.promise == null) {
 			this.promise = promise;
@@ -19,7 +19,7 @@ public class PromiseWrapper {
 		return success;
 	}
 
-	public void resolve(Object value) {
+	void resolve(Object value) {
 		if (this.promise == null) {
 			Log.d(TAG, "Cannot resolve; Null promise");
 			return;
@@ -29,7 +29,7 @@ public class PromiseWrapper {
 		resetMembers();
 	}
 
-	public void reject(String code, String message) {
+	void reject(String code, String message) {
 		if (promise == null) {
 			Log.d(TAG, "Cannot reject; Null promise");
 			return;
