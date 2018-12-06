@@ -20,12 +20,16 @@ class FinoramicSignIn {
     return this.configPromise.then(() => FinSignIn.signIn(googleClientId, extraScopes));
   }
 
-  configure(options = {}) {
-    if (options.offlineAccess && !options.webClientId) {
-      throw new Error('RNFinoramicSignIn: offline use requires web ClientID');
+  /**
+   * Initializes the SDK
+   * @param {String} clientId The Finoramic Client ID given by Finoramic
+   */
+  configure(clientId) {
+    if (!clientId) {
+      throw new Error('FinoramicSignIn: ClientID is required');
     }
 
-    this.configPromise = FinSignIn.configure(options);
+    this.configPromise = FinSignIn.configure(clientId);
   }
 
   signOut() {
