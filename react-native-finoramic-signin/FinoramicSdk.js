@@ -1,6 +1,6 @@
 import { NativeModules } from 'react-native';
 
-const { RNFinoramicSignIn: FinSignIn } = NativeModules;
+const { FinoramicSignIn: FinSignIn } = NativeModules;
 
 class FinoramicSignIn {
   configPromise;
