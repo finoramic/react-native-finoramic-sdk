@@ -28,6 +28,7 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 	public RNFinoramicSigninModule(final ReactApplicationContext reactContext) {
 		super(reactContext);
 		this.reactContext = reactContext;
+		promiseWrapper = new PromiseWrapper();
 		reactContext.addActivityEventListener(this);
 	}
 
