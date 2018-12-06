@@ -1,0 +1,243 @@
+{
+  "project_info": {
+    "project_number": "695617984308",
+    "firebase_url": "https://figg-0101.firebaseio.com",
+    "project_id": "figg-0101",
+    "storage_bucket": "figg-0101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695617984308:android:a6b851f1f71f5855",
+        "android_client_info": {
+          "package_name": "com.figg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695617984308-j09ueo3trcd9qt3i3oerhf2j40cjnh25.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "48b6a034ea08bff772254afd3ffab5649433b262"
+          }
+        },
+        {
+          "client_id": "695617984308-vibohdkkvvv6vtn04nd8kb1de5vbj9d4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "a8c121243b917c847a4febfc39b3e600f429d50e"
+          }
+        },
+        {
+          "client_id": "695617984308-v29b3oegf880hn4tn2js17bjulull74f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "584f38241052e8f4c82146e771258b544fc555af"
+          }
+        },
+        {
+          "client_id": "695617984308-7bqfmn2o0ecebhkdn1k592emuff9enc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "778852a772e11a276415ea67a36ca835bb38f504"
+          }
+        },
+        {
+          "client_id": "695617984308-nn0vq6clgrklreqe1vfbl4mb79l6neta.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "efc274f90061cb8c7ecff3d270a53a6af3c2b7a7"
+          }
+        },
+        {
+          "client_id": "695617984308-oel4k9dec0mejb563o95u4e43vg9qeik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "6d09a995857e15f845a9c622ab4e25708b63cd55"
+          }
+        },
+        {
+          "client_id": "695617984308-ff4ifcnanbmrtl9r4phu39b58r8i2jst.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "0a7eb25afe1efb60128c52afc6e30fae6a4230db"
+          }
+        },
+        {
+          "client_id": "695617984308-1s1c22e59jtilo2d95f1g6k1opesaqd2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "e359f2653f8a4fdd661ff8d221abd5acde851601"
+          }
+        },
+        {
+          "client_id": "695617984308-07hs2fpic783hcmdhcmnrofobjevj2re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "e43e3dda34d363e2672962378bc381bcf22eb62b"
+          }
+        },
+        {
+          "client_id": "695617984308-4ud5odfd7s5bq4n660sqc06bgv4gq00r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "dcdbb3f53d73c1991c0a761ba9c4724b3d37ac14"
+          }
+        },
+        {
+          "client_id": "695617984308-ih6dv90fakdk9f1ndm2ob3erqsqdnoiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "8a72ad3684c78efc2303fe4db1e7b4fdbc1bc0bb"
+          }
+        },
+        {
+          "client_id": "695617984308-ak4cf8lh2tl1uejsfa3u4f70kkld4anr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "34f8933d1c722a6f460cc3eab0264a8ce540adb0"
+          }
+        },
+        {
+          "client_id": "695617984308-8du0h5p0f7rqcv5728lohmb6pqb199t0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "dc7e863fee1658c997037d90095f0f33204a9a16"
+          }
+        },
+        {
+          "client_id": "695617984308-h7u3j3h2rhvenjiuq5o0shdg1stmtjpr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "b71fbd3ac8aed0eb18cb7d9a26476452c3a74144"
+          }
+        },
+        {
+          "client_id": "695617984308-sl4nit50crsr9vu8lptm56fk61ij8j90.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "b3bad996eaf524f83697c2c23a478a6ea22dc0c4"
+          }
+        },
+        {
+          "client_id": "695617984308-4m8r3n3tch722mhqa6bcnd1f3qaiaavb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "c8c34afebdfb816605d5f6b9087bb1053224bfa9"
+          }
+        },
+        {
+          "client_id": "695617984308-cs4iee5bvhiso0jurqa3iekg28s72es8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "fe130d9e5286140334bb3a23204ff5ba50ff2cfc"
+          }
+        },
+        {
+          "client_id": "695617984308-20qhh9g7hp4382aer4cl2lmd0rfj0vm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "aa48ef34cc4e1175a6019fc52b057bc5c19cce3f"
+          }
+        },
+        {
+          "client_id": "695617984308-6ohkrk5r5rl2o6otpm9hu5hokk81951j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.figg",
+            "certificate_hash": "1635b97a59cc51fc0ef706cd0712997e943ed07e"
+          }
+        },
+        {
+          "client_id": "695617984308-rprb3jb064fg4mseggba53r5jg035m8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdjqCScM_IbzXk-4b8VKm0unXHz0eqf9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695617984308-rqpenglj9g2si2v9va42crndmi5dn7ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695617984308:android:a00f6301cfe944a0",
+        "android_client_info": {
+          "package_name": "com.rnexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695617984308-vs1p23812f0nj5mjb752u8g865p02kqc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnexample",
+            "certificate_hash": "1635b97a59cc51fc0ef706cd0712997e943ed07e"
+          }
+        },
+        {
+          "client_id": "695617984308-rprb3jb064fg4mseggba53r5jg035m8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdjqCScM_IbzXk-4b8VKm0unXHz0eqf9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695617984308-rqpenglj9g2si2v9va42crndmi5dn7ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
