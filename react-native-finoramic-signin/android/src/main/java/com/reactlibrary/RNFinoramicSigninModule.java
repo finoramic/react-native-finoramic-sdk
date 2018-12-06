@@ -10,8 +10,11 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.UiThreadUtil;
 import com.figg.sdk.android.authentication.sample.FinoramicSdk;
+
+import static com.reactlibrary.Util.createScopesStringArray;
 
 public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
@@ -43,7 +46,8 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 	}
 
 	@ReactMethod
-	public void signIn(Promise promise, String googleClientId, String[] extraScopes) {
+	public void signIn(String googleClientId, ReadableArray extraScopes, Promise promise) {
+		Log.d(TAG, "Came in signin react method. GCI:" + googleClientId);
 		final Activity activity = getCurrentActivity();
 
 		if (activity == null) {
@@ -58,7 +62,8 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 			return;
 		}
 
-		final Intent signInIntent = FinoramicSdk.getSignInIntent(this.reactContext, googleClientId, extraScopes);
+		String[] extraScopesAsStringArray = createScopesStringArray(extraScopes);
+		final Intent signInIntent = FinoramicSdk.getSignInIntent(this.reactContext, googleClientId, extraScopesAsStringArray);
 		UiThreadUtil.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
