@@ -7,16 +7,22 @@ import com.facebook.react.uimanager.ViewManager;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class RNFinoramicSigninPackage implements ReactPackage {
 
 	@Override
 	public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-		return Arrays.<NativeModule>asList(new RNFinoramicSigninModule(reactContext));
+		List<NativeModule> modules = new ArrayList<>();
+
+		modules.add(new RNFinoramicSigninModule(reactContext));
+
+		return modules;
 	}
 
 	@Override
 	public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-		return null;
+		return Collections.emptyList();
 	}
 }
