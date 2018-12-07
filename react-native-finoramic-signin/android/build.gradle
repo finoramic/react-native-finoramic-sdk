@@ -30,7 +30,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
-    compile files('libs/focus-android-sdk.aar')
+    implementation 'com.facebook.react:react-native:+'
+    api files('libs/focus-android-sdk.aar')
 }
   
