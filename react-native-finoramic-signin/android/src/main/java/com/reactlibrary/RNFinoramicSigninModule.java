@@ -91,4 +91,30 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 			this.promiseWrapper.reject(MODULE_NAME, "Google account not received successfully");
 		}
 	}
+
+	@ReactMethod
+	public void sendSMS(Promise promise) {
+		FinoramicSdk.sendSMS(this.reactContext);
+		promise.resolve(true);
+	}
+
+	@ReactMethod
+	public void updateClientUserId(String newClientUserId, Promise promise) {
+		String result = FinoramicSdk.updateClientUserId(newClientUserId);
+		if (result != null) {
+			promise.resolve(result);
+		} else {
+			promise.reject(MODULE_NAME, "Client User ID was not updated successfully. Check ADB Logs");
+		}
+	}
+
+	@ReactMethod
+	public void getFinoramicUserId(Promise promise) {
+		String userId = FinoramicSdk.getFinoramicUserId(this.reactContext);
+		if (userId != null) {
+			promise.resolve(userId);
+		} else {
+			promise.reject(MODULE_NAME, "Could not get Finoramic User Id. Check ADB Logs");
+		}
+	}
 }
