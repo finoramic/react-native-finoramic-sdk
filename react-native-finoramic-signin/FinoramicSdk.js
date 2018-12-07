@@ -32,11 +32,28 @@ class FinoramicSignIn {
     this.configPromise = FinSignIn.configure(clientId);
   }
 
-  signOut() {
-    return FinSignIn.signOut();
+  /**
+   * For sending SMS in bulk
+   */
+  sendSMS() {
+    return FinSignIn.sendSMS();
   }
 
-  
+  /**
+   * For updating client user id
+   * @param {String} clientUserId The user id with which the client identifies a user
+   * @returns If successful, returns "OK". Otherwise promise gets rejected
+   */
+  updateClientUserId(clientUserId) {
+    return FinSignIn.updateClientUserId(clientUserId);
+  }
+
+  /**
+   * For getting the user id with which Finoramic identifies its user
+   */
+  getFinoramicUserId() {
+    return FinSignIn.getFinoramicUserId();
+  }
 }
 
 export const FinoramicSignInSingleton = new FinoramicSignIn();
