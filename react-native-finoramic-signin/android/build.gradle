@@ -1,3 +1,8 @@
+apply plugin: 'com.android.library'
+
+def DEFAULT_COMPILE_SDK_VERSION = 27
+def DEFAULT_MIN_SDK_VERSION = 26
+def DEFAULT_TARGET_SDK_VERSION = 26
 
 buildscript {
     repositories {
@@ -9,14 +14,12 @@ buildscript {
     }
 }
 
-apply plugin: 'com.android.library'
-
 android {
-    compileSdkVersion 27
+    compileSdkVersion rootProject.hasProperty('compileSdkVersion') ? rootProject.compileSdkVersion : DEFAULT_COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdkVersion 26
-        targetSdkVersion 26
+        minSdkVersion rootProject.hasProperty('minSdkVersion') ? rootProject.minSdkVersion : DEFAULT_MIN_SDK_VERSION
+        targetSdkVersion rootProject.hasProperty('targetSdkVersion') ? rootProject.targetSdkVersion : DEFAULT_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
     }
@@ -33,4 +36,3 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     api files('libs/focus-android-sdk.aar')
 }
-  
