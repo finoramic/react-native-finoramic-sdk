@@ -25,7 +25,7 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 
 	private PromiseWrapper promiseWrapper;
 
-	public RNFinoramicSigninModule(final ReactApplicationContext reactContext) {
+	RNFinoramicSigninModule(final ReactApplicationContext reactContext) {
 		super(reactContext);
 		this.reactContext = reactContext;
 		promiseWrapper = new PromiseWrapper();
