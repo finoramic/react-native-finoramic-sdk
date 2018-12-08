@@ -12,7 +12,7 @@ import com.facebook.react.bridge.ReactMethod;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.UiThreadUtil;
-import com.figg.sdk.android.authentication.sample.FinoramicSdk;
+import com.figg.sdk.android.FinoramicSdk;
 
 import static com.reactlibrary.Util.createScopesStringArray;
 
