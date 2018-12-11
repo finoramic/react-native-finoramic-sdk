@@ -3,7 +3,7 @@
 
 ## Getting started
 
-`$ npm install https://github.com/finoramic/reactsdk.git --save`
+`$ npm install finoramic/react-native-finoramic-sdk --save`
 
 ## Android SDK Requirements
 
@@ -29,7 +29,7 @@ buildscript {
 }
 ... 
 dependencies {
-  classpath 'com.android.tools.build:gradle:3.2.1' // <--- use this version or newer
+  classpath 'com.android.tools.build:gradle:3.1.4' // <--- use this version or newer
   classpath 'com.google.gms:google-services:4.0.1' // <--- use this version or newer
 }
 ... 
@@ -100,7 +100,7 @@ export default App extends React.Component {
   ... 
   constructor() {
     super();
-    FinoramicSign.configure(FINORAMIC_CLIENT_ID);
+    FinoramicSignIn.configure(FINORAMIC_CLIENT_ID);
   }
   ... 
 }
@@ -138,8 +138,9 @@ import { FinoramicSignIn } from ‘react-native-finoramic-signin’;
 	... 
 	<Button
 	  onPress={() => {
-      this.requestPermissions() // <-- implement this function by following above example link
-        .then(() => FinoramicSignIn.sendSMS()); // <-- ensure permissions are given before calling
+      		this.requestPermissions() // <-- implement this function by following above example link
+       		.then(() => FinoramicSignIn.sendSMS()); // <-- ensure permissions are given before calling
+	  	}
 	  }
 	  ...
 	/>
