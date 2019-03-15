@@ -21,7 +21,7 @@ Please note that this package requires android gradle plugin of version >= 3, wh
 buildscript {
   ext {
   buildToolsVersion = “27.0.3”
-  minSdkVersion = 26
+  minSdkVersion = 16
   compileSdkVersion = 27
   targetSdkVersion = 26
   supportLibVersion = “26.0.1”
