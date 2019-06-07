@@ -17,7 +17,7 @@ class FinoramicSignIn {
    * @param {String[]} extraScopes The array of extra scopes to be added as and when required by client
    */
   getGoogleSignIn(clientId, userId, redirectUrl, fetchProfile = false) {
-    return this.configPromise.then(() => FinSignIn.signIn(clientId, userId, redirectUrl, fetchProfile));
+    return this.configPromise.then(() => FinSignIn.getGoogleSignIn(clientId, userId, redirectUrl, fetchProfile));
   }
 
   /**
