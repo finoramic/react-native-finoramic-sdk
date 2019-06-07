@@ -44,7 +44,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Button
-          onPress={() => FinoramicSignIn.signIn(WEB_CLIENT_ID)}
+          onPress={() => FinoramicSignIn.getGoogleSignIn(CLIENT_ID, USER_ID, REDIRECT_URL, FETCH_PROFILE)}
           title="SignIn"
           color="#841584"
         />
