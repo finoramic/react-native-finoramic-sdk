@@ -41,13 +41,13 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 	}
 
 	@ReactMethod
-	public void configure(final String clientID, final Promise promise) {
-		FinoramicSdk.init(this.reactContext, clientID);
+	public void configure(final String clientId, final String clientUserId, final Promise promise) {
+		FinoramicSdk.init(this.reactContext, clientId, clientUserId);
 		promise.resolve(true);
 	}
 
 	@ReactMethod
-	public void getGoogleSignIn(String clientId, String userId, String redirectUrl, Boolean fetchProfile, Promise promise) {
+	public void getGoogleSignIn(String redirectUrl, Boolean fetchProfile, Promise promise) {
 		final Activity activity = getCurrentActivity();
 
 		if (activity == null) {
@@ -62,8 +62,7 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 			return;
 		}
 
-		String[] extraScopesAsStringArray = createScopesStringArray(extraScopes);
-		final Intent signInIntent = FinoramicSdk.getGoogleSignIn(this.reactContext, clientId, userId, redirectUrl, fetchProfile);
+		final Intent signInIntent = FinoramicSdk.getGoogleSignIn(this.reactContext, redirectUrl, fetchProfile);
 		UiThreadUtil.runOnUiThread(new Runnable() {
 			@Override
 			public void run() {

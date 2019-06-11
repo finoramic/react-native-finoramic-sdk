@@ -16,20 +16,20 @@ class FinoramicSignIn {
    * @param {String} googleClientId The web client Id of the backend server
    * @param {String[]} extraScopes The array of extra scopes to be added as and when required by client
    */
-  getGoogleSignIn(clientId, userId, redirectUrl, fetchProfile = false) {
-    return this.configPromise.then(() => FinSignIn.getGoogleSignIn(clientId, userId, redirectUrl, fetchProfile));
+  getGoogleSignIn(redirectUrl, fetchProfile = false) {
+    return this.configPromise.then(() => FinSignIn.getGoogleSignIn(redirectUrl, fetchProfile));
   }
 
   /**
    * Initializes the SDK
    * @param {String} clientId The Finoramic Client ID given by Finoramic
    */
-  configure(clientId) {
-    if (!clientId) {
+  configure(clientId, clientUserId) {
+    if (!clientId || clientUserId) {
       throw new Error('FinoramicSignIn: ClientID is required');
     }
 
-    this.configPromise = FinSignIn.configure(clientId);
+    this.configPromise = FinSignIn.configure(clientId, clientUserId);
   }
 
   /**
