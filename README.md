@@ -1,53 +1,58 @@
-
-# react-native-finoramic-signin
-
-## Getting started
-
-`$ npm install finoramic/react-native-finoramic-sdk --save`
-
-## Android SDK Requirements
-
-
-## Google Project Configuration
-* Follow [this](https://github.com/react-native-community/react-native-google-signin/blob/master/docs/get-config-file.md) guide to get the configuration file
-* Place the generated configuration file (google-services.json) into <YOUR_PROJECT_ROOT>/android/app
+# reactnative-finoramic-sdk
 
 ## Installation
-Please note that this package requires android gradle plugin of version >= 3, which in turn requires at least gradle 4.1. Android studio should be able to do the upgrade for you.
 
-1. run `react-native link`
-2. Update `android/build.gradle` with
+1. Download sdk module
+
+```
+> npm install finoramic/react-native-finoramic-sdk --save
+```
+
+2. Link the module
+
+```
+react-native link
+```
+
+3. Update android/build.gradle with
+
 ```
 buildscript {
   ext {
-  buildToolsVersion = “27.0.3”
-  minSdkVersion = 16
-  compileSdkVersion = 27
-  targetSdkVersion = 26
-  supportLibVersion = “26.0.1”
+    buildToolsVersion = “27.0.3”
+    minSdkVersion = 26
+    compileSdkVersion = 27
+    targetSdkVersion = 26
+    supportLibVersion = “26.0.1”
   }
 }
-... 
-dependencies {
-  classpath 'com.android.tools.build:gradle:3.1.4' // <--- use this version or newer
-  classpath 'com.google.gms:google-services:4.0.1' // <--- use this version or newer
-}
-... 
-allprojects {
-  repositories {
-    google() <-- make sure this is included
-    mavenLocal()
-    jcenter()
-    maven {
-      // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-      url "$rootDir/../node_modules/react-native/android"
+
+...
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.2.1' // <--- use this version or newer
+    classpath 'com.google.gms:google-services:4.0.1' // <--- use this version or newer
+  }
+
+...
+
+  allprojects {
+    repositories {
+      google() <-- make sure this is included
+      mavenLocal()
+      jcenter()
+      maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+      }
     }
   }
-}
 ```
-3. Update `android/app/build.gradle` with
+
+4. Update android/app/build.gradle with
 ```
-... 
+...
+
 dependencies {
   implementation project(':react-native-finoramic-signin')
   implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -60,112 +65,195 @@ dependencies {
 
 apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
 ```
-4. Check that `react-native link` linked the native module correctly.
-  - In `android/settings.gradle`, you should have
-  ```
-  ... 
-  include ‘:react-native-finoramic-signin’
-  project(‘:react-native-finoramic-signin’).projectDir = new File(rootProject.projectDir, ‘../node_modules/react-native- finoramic-signin/android’)
-  ```
-  - In MainApplication.java, you should have
-  ```
-  import com.finoramic.RNFinoramicSignInPackage; // <-- import
 
-  public class MainApplication extends Application implements ReactApplication {
-    ... 
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-        new MainReactPackage(),
-        new RNFinoramicSigninPackage() // <-- this needs to be in the list
-      );
-    }
+5. Check that react-native link linked the native module correctly
+    - In android/settings.gradle, you should have
+
+    ```
     ...
+
+    include ‘:react-native-finoramic-signin’
+    project(‘:react-native-finoramic-signin’).projectDir = new File(rootProject.projectDir, ‘../node_modules/react-native-finoramic-signin/android’)
+    ```
+
+    - In MainApplication.java, you should have
+    ```
+    import com.finoramic.RNFinoramicSignInPackage; // <-- import
+
+    public class MainApplication extends Application implements ReactApplication {
+
+      ...
+
+      @Override
+      protected List<ReactPackage> getPackages() {
+        return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+          new RNFinoramicSigninPackage() // <-- this needs to be in the list
+        );
+      }
+
+      ...
     }
-  ```
-## Public API
-### 1. Installation
-You must first initialize the Finoramic SDK by calling the `configure()` function in the constructor of the root component of your app and pass the Finoramic Client ID given by us in the function’s parameters. It is necessary that it be declared right at the starting of the app.
-#### API
-**configure(finoramicClientId)**
-* `finoramicClientId` being the client ID that you obtained from Finoramic.
-#### Example
+    ```
+
+6. Initialize the Finoramic SDK by calling the configure method in the constructor of the root component of your app and pass the Finoramic Client ID in the function’s parameters.
+
 ```
 import { FinoramicSignIn } from ‘react-native-finoramic-signin’; // <-- way to import
-... 
 
-const FINORAMIC_CLIENT_ID = ‘’; // <-- replace it with your clientId
+...
 
 export default App extends React.Component {
-  ... 
+
+  ...
+
   constructor() {
     super();
-    FinoramicSignIn.configure(FINORAMIC_CLIENT_ID);
+    FinoramicSignIn.configure(<CLIENT_ID>, <CLIENT_USER_ID>);
   }
-  ... 
+
+  ...
+
 }
 ```
-### 2. Finoramic Sign In
-It is mandatory to have called the `configure()` function before calling the `signIn()` function. This function prompts a modal to let the user sign in to your application. Resolved promise returns a `GoogleSignInAccount` object.
-#### API
-**signIn(webClientId, extraScopes)**
-* `webClientId` is the client ID of type WEB for your server (needed for offline access)
-* `extraScopes` is an array of Strings containing any extra [`Scopes`](https://developers.google.com/android/reference/com/google/android/gms/common/api/Scope) that your application requires access to
-#### Example
+
+7. Call the getGoogleSignIn method onclick sign in button.
+
+|param|required|value|comments|
+|---|---|---|---|
+|**redirect_url**|required|string|URL to redirect to after login|
+|fetch_profile|optional|boolean|If set to true, Finoramic will send user’s Google profile details along with redirect|
+
 ```
-... 
+...
+
 import { FinoramicSignIn } from ‘react-native-finoramic-signin’;
-... 
+
+...
+
+signIn() {
+  return FinoramicSignIn.getGoogleSignIn(<REDIRECT_URL>, <FETCH_PROFILE>)
+    .then((data) => {
+      // Handle sign-in
+    })
+}
+
 render() {
+
   ...
+
   return (
-    ... 
+
+    ...
+
     <Button
-      onPress={() => FinoramicSignIn.signIn(WEB_CLIENT_ID)}
+      onPress={() => signIn()}
       title=”LOGIN”
     />
-    ... 
+
+    ...
+
   );
 }
 ```
-### 3. SMS
-For SMS, it is necessary that you have requested Android Permissions for READ_SMS and ACCESS_FINE_LOCATION from the user. To know how to request permissions in React Native, follow this [example](https://facebook.github.io/react-native/docs/permissionsandroid#example).
-#### API
-**sendSMS()**
-#### Example
+
+Upon successful login, google profile will be sent in the success method of callback context (if fetch_profile is set to true).
+
+The format of data is a JSONString
+
+|param|value|comments|
+|---|---|---|
+|clientInput|JSON|Contains client input in encoded JSON format |
+|finoramicOutput|JSON|Contains users google profile info in encoded JSON format|
+
+When parsed, response will look like
+
 ```
-import { FinoramicSignIn } from ‘react-native-finoramic-signin’;
-	... 
-	<Button
-	  onPress={() => {
-      		this.requestPermissions() // <-- implement this function by following above example link
-       		.then(() => FinoramicSignIn.sendSMS()); // <-- ensure permissions are given before calling
-	  	}
-	  }
-	  ...
-	/>
-```
-### 4. Other Utility functions
-#### API
-**updateClientUserId(clientUserId)**
-* `clientUserId` being the ID with which you as our client, identify your users
-#### Example
-```
-import { FinoramicSignIn } from ‘react-native-finoramic-signin’;
-	... 
-	<Button
-	  onPress={() => FinoramicSignIn.updateClientUserId(CLIENT_USER_ID)}
-	  ... 
-	/>
+{
+  clientInput: {
+    "clientUserId": "abc123"
+  },
+  finoramicOutput: {
+    "googleUserId": "10746794874287731198",
+    "email": "ravi.verma1337@gmail.com",
+    "response": {
+      "id": "10746794874287731198",
+      "name": "Ravi Verma",
+      "displayName": "Ravi Verma",
+      "familyName": "Verma",
+      "givenName": "Ravi",
+      "displayNameLastFirst": "Verma, Ravi",
+      "email": "ravi.verma1337@gmail.com",
+      "dob": {
+        "year": 1990,
+        "month": 2,
+        "day": 15
+      }
+    }
+  }
+}
 ```
 
-#### API
-**getFinoramicUserId()**
-#### Example
+For error cases, response will look like
+```
+finoramicOutput: {
+  "googleUserId": "10746794874287731198",
+  "email": "ravi.verma1337@gmail.com",
+  "login": "error",
+  "code": 500,
+  "message": "Internal Server Error"
+}
+```
+
+8. For SMS, it is necessary that you have requested Android Permissions for READ_SMS and ACCESS_FINE_LOCATION from the user.
+
 ```
 import { FinoramicSignIn } from ‘react-native-finoramic-signin’;
-	...  
-	FinoramicSignIn.getFinoramicUserId().then((finoramicUserId) => {
-		// do stuff with finoramic user id
-  });
+
+...
+
+<Button
+  onPress={() => {
+    this.requestPermissions() // <-- implement this function
+      .then(() => FinoramicSignIn.sendSMS()); // <-- ensure permissions are given before calling
+  }
+
+  ...
+
+/>
 ```
+
+## Example
+
+```
+constructor() {
+    super();
+    FinoramicSignIn.configure(CLIENT_ID, CLIENT_USER_ID);
+  }
+
+  handleSendSMS = () => {
+    // Check permissions here and call sendSMS() only if permission is granted
+    return FinoramicSignIn.sendSMS();
+  };
+
+  signIn() {
+    return FinoramicSignIn.getGoogleSignIn(<REDIRECT_URL>, <FETCH_PROFILE>)
+      .then((data) => {
+        // Handle sign-in
+      })
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Button
+          onPress={() => signIn()}
+          title="SignIn"
+        />
+    );
+  }
+```
+
+## DISCLAIMER
+
+The information contained within this document is confidential and proprietary to Varignon Technologies Private Limited. Recipients may not disclose, duplicate, distribute or otherwise disseminate this information without the express, written authorization or permission for the future Calls. Recipients are expected to accept these conditions without exceptions unless this organization is notified to the contrary.  Recipients are expected to communicate this information to their employees, or anyone else having access to this document. This information shall be safeguarded with the same degree of protection the recipient would afford its own proprietary data.
