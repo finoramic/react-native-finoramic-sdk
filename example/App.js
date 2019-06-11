@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, Button, PermissionsAndroid, TextInput } from 'react-native';
 import { FinoramicSignIn } from 'react-native-finoramic-signin';
 
-const WEB_CLIENT_ID = '695617984308-fl04vs5sb8cd3298prk5vimr7jupjivl.apps.googleusercontent.com';
-const FINORAMIC_CLIENT_ID = 'com.i2i';
+const CLIENT_ID = '';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +16,7 @@ const styles = StyleSheet.create({
 export default class App extends Component {
   constructor() {
     super();
-    FinoramicSignIn.configure(FINORAMIC_CLIENT_ID);
+    FinoramicSignIn.configure(CLIENT_ID, CLIENT_USER_ID);
     this.state = {
       clientUserId: '',
     };
@@ -44,7 +43,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Button
-          onPress={() => FinoramicSignIn.getGoogleSignIn(CLIENT_ID, USER_ID, REDIRECT_URL, FETCH_PROFILE)}
+          onPress={() => FinoramicSignIn.getGoogleSignIn(REDIRECT_URL, FETCH_PROFILE)}
           title="SignIn"
           color="#841584"
         />
