@@ -197,8 +197,6 @@ When parsed, response will look like
 For error cases, response will look like
 ```
 finoramicOutput: {
-  "googleUserId": "10746794874287731198",
-  "email": "ravi.verma1337@gmail.com",
   "login": "error",
   "code": 500,
   "message": "Internal Server Error"
