@@ -161,45 +161,35 @@ Upon successful login, google profile will be sent in the success method of call
 
 The format of data is a JSONString
 
+#### Success
 |param|value|comments|
 |---|---|---|
-|clientInput|JSON|Contains client input in encoded JSON format |
-|finoramicOutput|JSON|Contains users google profile info in encoded JSON format|
+|user_id|string|Client Unique User Identifier|
+|google_user_id|string|Google Unique User Identifier|
+|name|string|Name of user|
+|email|string|Email of user|
+|display_name|string|Display Name of user|
+|given_name|string|Given Name of user|
+|photo_url|string|Photo URL of user|
 
-When parsed, response will look like
+#### Error
+|param|value|comments|
+|---|---|---|
+|login|string|Status of login. eg.**error**|
+|code|number|Error code|
+|message|string|Message of error|
 
+
+Sesponse will look like
 ```
 {
-  clientInput: {
-    "clientUserId": "abc123"
-  },
-  finoramicOutput: {
-    "googleUserId": "10746794874287731198",
-    "email": "ravi.verma1337@gmail.com",
-    "response": {
-      "id": "10746794874287731198",
-      "name": "Ravi Verma",
-      "displayName": "Ravi Verma",
-      "familyName": "Verma",
-      "givenName": "Ravi",
-      "displayNameLastFirst": "Verma, Ravi",
-      "email": "ravi.verma1337@gmail.com",
-      "dob": {
-        "year": 1990,
-        "month": 2,
-        "day": 15
-      }
-    }
-  }
-}
-```
-
-For error cases, response will look like
-```
-finoramicOutput: {
-  "login": "error",
-  "code": 500,
-  "message": "Internal Server Error"
+  "user_id": "abc123",
+  "google_user_id": "10746794874287731198",
+  "name": "Ravi Verma",
+  "email": "ravi.verma1337@gmail.com",
+  "display_name": "Ravi Verma",
+  "given_name": "Ravi",
+  "photo_url": "https: //lh3.googleusercontent.com/-5dNnBkloY1w/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcHQYnxaoHvgE6U2dcSiNYRpk0lGA/s86-c/photo.jpg"
 }
 ```
 
