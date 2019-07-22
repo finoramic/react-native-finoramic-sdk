@@ -20,7 +20,7 @@ react-native link
 buildscript {
   ext {
     buildToolsVersion = “27.0.3”
-    minSdkVersion = 26
+    minSdkVersion = 16
     compileSdkVersion = 27
     targetSdkVersion = 26
     supportLibVersion = “26.0.1”
@@ -59,12 +59,14 @@ dependencies {
   implementation 'com.google.android.gms:play-services-location:16.0.0'
   implementation 'com.google.android.gms:play-services-auth:16.0.1'
   implementation "com.android.support:appcompat-v7:26.1.0"
+  implementation 'com.android.support.constraint:constraint-layout:1.1.3'
   implementation "com.facebook.react:react-native:+"  // From node_modules
   implementation 'com.google.firebase:firebase-core:16.0.6
 }
 
 apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
 ```
+NOTE: Any deviation in these versions may cause an error, please contact us if you need to use different versions.
 
 5. Check that react-native link linked the native module correctly
     - In android/settings.gradle, you should have
@@ -96,7 +98,15 @@ apply plugin: 'com.google.gms.google-services' // <--- this should be the last l
     }
     ```
 
-6. Initialize the Finoramic SDK by calling the configure method in the constructor of the root component of your app and pass the Finoramic Client ID in the function’s parameters.
+6. Initialize the Finoramic SDK by calling the configure method in the constructor of the root component of your app.
+
+The configure method takes 3 params
+
+|param|required|value|comments|
+|---|---|---|---|
+|**client_id**|required|String|Provided by Finoramic|
+|**user_id**|required|String|Client Unique User Identifier|
+|**environment**|required|String|Variable to choose **sandbox** or **production** environments|
 
 ```
 import { FinoramicSignIn } from ‘react-native-finoramic-signin’; // <-- way to import
@@ -109,7 +119,7 @@ export default App extends React.Component {
 
   constructor() {
     super();
-    FinoramicSignIn.configure(<CLIENT_ID>, <CLIENT_USER_ID>);
+    FinoramicSignIn.configure(<CLIENT_ID>, <CLIENT_USER_ID>, <ENVIRONMENT>);
   }
 
   ...
@@ -216,7 +226,7 @@ import { FinoramicSignIn } from ‘react-native-finoramic-signin’;
 ```
 constructor() {
     super();
-    FinoramicSignIn.configure(CLIENT_ID, CLIENT_USER_ID);
+    FinoramicSignIn.configure(CLIENT_ID, CLIENT_USER_ID, ENVIRONMENT);
   }
 
   handleSendSMS = () => {
