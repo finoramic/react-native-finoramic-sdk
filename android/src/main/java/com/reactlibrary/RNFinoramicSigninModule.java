@@ -41,8 +41,8 @@ public class RNFinoramicSigninModule extends ReactContextBaseJavaModule implemen
 	}
 
 	@ReactMethod
-	public void configure(final String clientId, final String clientUserId, final Promise promise) {
-		FinoramicSdk.init(this.reactContext, clientId, clientUserId);
+	public void configure(final String clientId, final String clientUserId, final String environment, final Promise promise) {
+		FinoramicSdk.init(this.reactContext, clientId, clientUserId, environment);
 		promise.resolve(true);
 	}
 

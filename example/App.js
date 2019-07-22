@@ -3,6 +3,10 @@ import { StyleSheet, View, Button, PermissionsAndroid, TextInput } from 'react-n
 import { FinoramicSignIn } from 'react-native-finoramic-signin';
 
 const CLIENT_ID = '';
+const CLIENT_USER_ID = '123dsa';
+const ENVIRONMENT = 'sandbox';
+const REDIRECT_URL = 'https://www.finoramic.com';
+const FETCH_PROFILE = true;
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +20,7 @@ const styles = StyleSheet.create({
 export default class App extends Component {
   constructor() {
     super();
-    FinoramicSignIn.configure(CLIENT_ID, CLIENT_USER_ID);
+    FinoramicSignIn.configure(CLIENT_ID, CLIENT_USER_ID, ENVIRONMENT);
     this.state = {
       clientUserId: '',
     };

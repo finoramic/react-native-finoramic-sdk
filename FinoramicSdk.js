@@ -24,12 +24,12 @@ class FinoramicSignIn {
    * Initializes the SDK
    * @param {String} clientId The Finoramic Client ID given by Finoramic
    */
-  configure(clientId, clientUserId) {
-    if (!clientId || clientUserId) {
+  configure(clientId, clientUserId, environment) {
+    if (!clientId) {
       throw new Error('FinoramicSignIn: ClientID is required');
     }
 
-    this.configPromise = FinSignIn.configure(clientId, clientUserId);
+    this.configPromise = FinSignIn.configure(clientId, clientUserId, environment);
   }
 
   /**
